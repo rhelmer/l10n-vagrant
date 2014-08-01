@@ -4,11 +4,11 @@ This project will use [Vagrant](http://vagrantup.com) and
 [Puppet](http://puppetlabs.com) to install a complete Mozilla l10n
 automation environment in a local [VirtualBox](http://virtualbox.org) VM.
 
-1) Install the latest Virtualbox from http://www.virtualbox.org/ 
-2) Install the latest Vagrant from http://vagrantup.com/
-3) git clone [master-ball](https://github.com/pike/slave-ball), [slave-ball](https://github.com/pike/slave-ball),
+1. Install the latest Virtualbox from http://www.virtualbox.org/ 
+2. Install the latest Vagrant from http://vagrantup.com/
+3. git clone [master-ball](https://github.com/pike/slave-ball), [slave-ball](https://github.com/pike/slave-ball),
    [a10n](https://github.com/pike/a10n) and [elmo](https://github.com/mozilla/elmo)
-4) build VM and provision with puppet:
+4. build VM and provision with puppet:
 
 ```
 vagrant up
