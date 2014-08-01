@@ -3,9 +3,9 @@ l10n-vagrant
 
 Vagrant VM for l10n automation
 
-This project will use http://vagrantup.com and http://puppetlabs.com to 
-install a complete Mozilla l10n automation environment in a local
-http://virtualbox.org/ VM.
+This project will use [Vagrant](http://vagrantup.com) and
+[Puppet](http://puppetlabs.com) to install a complete Mozilla l10n
+automation environment in a local [VirtualBox](http://virtualbox.org) VM.
 
 ---
 INSTALL
