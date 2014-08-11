@@ -1,4 +1,10 @@
-# Version:  $Id$
+Exec {
+    logoutput => on_failure,
+}
+
+node default {
+    include webapp::a10n
+}
 
 class webapp::a10n {
 
