@@ -21,6 +21,10 @@ class webapp::a10n {
     }
 
     service {
+        'iptables':
+            ensure => stopped,
+            enable => false;
+
         'supervisord':
             ensure => running,
             require => Package['supervisor'];
@@ -28,6 +32,14 @@ class webapp::a10n {
         'rabbitmq-server':
             ensure => running,
             require => Package['rabbitmq-server'];
+
+        'mysql-server':
+            ensure => running,
+            require => Package['mysql-server'];
+
+        'elasticsearch':
+            ensure => running,
+            require => Package['elasticsearch'];
     }
 
     user {
