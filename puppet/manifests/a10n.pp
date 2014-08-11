@@ -37,12 +37,19 @@ class webapp::a10n {
           enabled  => 1,
           gpgcheck => 0,
           timeout  => 60;
+
+      'elasticsearch':
+          baseurl  =>
+            'http://packages.elasticsearch.org/elasticsearch/0.90/centos',
+          enabled  => 1,
+          gpgcheck => 0;
     }
 
     package {
         [
          'mysql-devel',
          'mysql-server',
+         'java-1.7.0-openjdk',
         ]:
         ensure => latest;
     }
@@ -51,8 +58,8 @@ class webapp::a10n {
          'python-virtualenv',
          'rabbitmq-server',
          'supervisor',
+         'elasticsearch',
         ]:
-        ensure => latest,
-        require => [ YumRepo['EPEL'] ]
+        require => [ Yumrepo['elasticsearch'], Package['java-1.7.0-openjdk'] ]
     }
 }
