@@ -6,6 +6,7 @@ node default {
     include webapp::a10n
 }
 
+# Requirements for Mozilla l10n automation
 class webapp::a10n {
 
     file {
@@ -26,19 +27,19 @@ class webapp::a10n {
             enable => false;
 
         'supervisord':
-            ensure => running,
+            ensure  => running,
             require => Package['supervisor'];
 
         'rabbitmq-server':
-            ensure => running,
+            ensure  => running,
             require => Package['rabbitmq-server'];
 
         'mysql-server':
-            ensure => running,
+            ensure  => running,
             require => Package['mysql-server'];
 
         'elasticsearch':
-            ensure => running,
+            ensure  => running,
             require => Package['elasticsearch'];
     }
 
@@ -50,7 +51,8 @@ class webapp::a10n {
 
     yumrepo {
       'EPEL':
-          baseurl  => 'http://dl.fedoraproject.org/pub/epel/$releasever/$basearch',
+          baseurl  =>
+            'http://dl.fedoraproject.org/pub/epel/$releasever/$basearch',
           descr    => 'EPEL',
           enabled  => 1,
           gpgcheck => 0,
@@ -65,18 +67,18 @@ class webapp::a10n {
 
     package {
         [
-         'mysql-devel',
-         'mysql-server',
-         'java-1.7.0-openjdk',
+          'mysql-devel',
+          'mysql-server',
+          'java-1.7.0-openjdk',
         ]:
         ensure => latest;
     }
     package {
         [
-         'python-virtualenv',
-         'rabbitmq-server',
-         'supervisor',
-         'elasticsearch',
+          'python-virtualenv',
+          'rabbitmq-server',
+          'supervisor',
+          'elasticsearch',
         ]:
         require => [ Yumrepo['elasticsearch'], Package['java-1.7.0-openjdk'] ]
     }
